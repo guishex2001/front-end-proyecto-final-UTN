@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
-import JobsBanner from '../partials/dashboard/JobsBanner';
-import JobsCard from '../partials/dashboard/JobsCard';
+import NewJobsBanner from '../partials/dashboard/NewJobsBanner';
+import NewJobsCard from '../partials/dashboard/NewJobsCard';
 
-function JobsPage() {
+function NewJobsPage() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -25,7 +25,7 @@ function JobsPage() {
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
             {/* Welcome banner */}
-            <JobsBanner />
+            <NewJobsBanner />
 
             
 
@@ -33,7 +33,7 @@ function JobsPage() {
             <div className="grid grid-cols-12 gap-6">
 
               {/* Trabajos */}
-              <JobsCard />
+              <NewJobsCard />
 
             </div>
 
@@ -46,4 +46,4 @@ function JobsPage() {
   );
 }
 
-export default JobsPage;
+export default NewJobsPage;

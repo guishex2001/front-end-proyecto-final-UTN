@@ -13,11 +13,7 @@ import './charts/ChartjsConfig';
 // Import pages
 import Dashboard from './pages/Dashboard';
 import JobsPage from './pages/JobsPage';
-
-
-
-
-
+import NewJobsPage from './pages/NewJobsPage';
 
 
 function App() {
@@ -35,11 +31,12 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
         <Route exact path="/dashboard/trabajos" element={<JobsPage />} />
+        <Route exact path="/dashboard/agrega-un-trabajo" element={<NewJobsPage />} />
 
 
       </Routes>
     </>
   );
-}
+} 
 
 export default App;
