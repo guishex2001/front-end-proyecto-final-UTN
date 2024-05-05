@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import {
   Routes,
   Route,
-  useLocation
+  useLocation,
+  createBrowserRouter
 } from 'react-router-dom';
 
 import './css/style.css';
@@ -11,6 +12,13 @@ import './charts/ChartjsConfig';
 
 // Import pages
 import Dashboard from './pages/Dashboard';
+import JobsPage from './pages/JobsPage';
+
+
+
+
+
+
 
 function App() {
 
@@ -26,6 +34,9 @@ function App() {
     <>
       <Routes>
         <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/dashboard/trabajos" element={<JobsPage />} />
+
+
       </Routes>
     </>
   );

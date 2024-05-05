@@ -8,11 +8,11 @@ import WelcomeBanner from '../partials/dashboard/WelcomeBanner';
 
 import DashboardCard01 from '../partials/dashboard/DashboardCard01';
 import DashboardCard02 from '../partials/dashboard/DashboardCard02';
-import DashboardCard03 from '../partials/dashboard/JobsCard';
+import JobsCard from '../partials/dashboard/JobsCard';
 import DashboardCard04 from '../partials/dashboard/DashboardCard04';
 
 
-function Dashboard() {
+function JobsPage() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -32,7 +32,7 @@ function Dashboard() {
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
             {/* Welcome banner */}
-            <WelcomeBanner />
+            <JobsBanner />
 
             
 
@@ -40,10 +40,7 @@ function Dashboard() {
             <div className="grid grid-cols-12 gap-6">
 
               {/* Line chart (Acme Plus) */}
-              <DashboardCard01 />
-              {/* Line chart (Acme Advanced) */}
-              <DashboardCard02 />
-              <DashboardCard04 />
+              <JobsCard />
 
 
 
@@ -60,4 +57,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default JobsPage;
