@@ -12,8 +12,6 @@ import DashboardCard04 from '../partials/dashboard/DashboardCard04';
 import DashboardCard05 from '../partials/dashboard/DashboardCard05';
 import DashboardCard06 from '../partials/dashboard/DashboardCard06';
 
-import Banner from '../partials/Banner';
-
 function Dashboard() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -56,7 +54,6 @@ function Dashboard() {
           </div>
         </main>
 
-        <Banner />
 
       </div>
     </div>
