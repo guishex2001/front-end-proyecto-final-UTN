@@ -14,7 +14,8 @@ import './charts/ChartjsConfig';
 import Dashboard from './pages/Dashboard';
 import JobsPage from './pages/JobsPage';
 import NewJobsPage from './pages/NewJobsPage';
-
+import Seccion1 from './pages/Seccion1';
+import Seccion2 from './pages/Seccion2';
 
 function App() {
 
@@ -32,7 +33,8 @@ function App() {
         <Route exact path="/" element={<Dashboard />} />
         <Route exact path="/dashboard/trabajos" element={<JobsPage />} />
         <Route exact path="/dashboard/agrega-un-trabajo" element={<NewJobsPage />} />
-
+        <Route exact path="/dashboard/seccion1" element={<Seccion1 />} />
+        <Route exact path="/dashboard/seccion2" element={<Seccion2 />} />
 
       </Routes>
     </>
