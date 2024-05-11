@@ -1,37 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function NewJobsCard({ onAddJob }) {
+function EditJobsCard({ jobId }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [client, setClient] = useState('');
   const [technology, setTechnology] = useState('');
   const [notification, setNotification] = useState(null);
 
+  useEffect(() => {
+    // Cargar los detalles del trabajo para editar
+    const fetchJobDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/jobs/${jobId}`);
+        const job = response.data.job;
+        setTitle(job.title);
+        setDescription(job.description);
+        setClient(job.client);
+        setTechnology(job.technology);
+      } catch (error) {
+        console.error('Error al cargar los detalles del trabajo:', error);
+      }
+    };
+
+    fetchJobDetails();
+  }, [jobId]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/jobs', {
+      await axios.put(`http://localhost:5000/jobs/${jobId}`, {
         title,
         description,
         client,
         technology
       });
-      // Llamar a la función onAddJob con el nuevo trabajo añadido
-      onAddJob(response.data.job);
-      // Limpiar los campos del formulario después de agregar el trabajo
-      setTitle('');
-      setDescription('');
-      setClient('');
-      setTechnology('');
       // Mostrar la notificación de éxito
-      setNotification('Trabajo agregado exitosamente');
+      setNotification('Trabajo actualizado exitosamente');
       // Ocultar la notificación después de 3 segundos
       setTimeout(() => {
         setNotification(null);
       }, 3000);
     } catch (error) {
-      console.error('Error al agregar el trabajo:', error);
+      console.error('Error al actualizar el trabajo:', error);
     }
   };
 
@@ -71,7 +82,7 @@ function NewJobsCard({ onAddJob }) {
             required // Campo obligatorio
           />
           <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded transition duration-300">
-            Agregar Trabajo
+            Actualizar Trabajo
           </button>
         </form>
         {/* Mostrar la notificación de éxito si está presente */}
@@ -85,4 +96,4 @@ function NewJobsCard({ onAddJob }) {
   );
 }
 
-export default NewJobsCard;
+export default EditJobsCard;
